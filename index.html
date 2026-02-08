@@ -1,0 +1,446 @@
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>𝕸𝖚𝖘𝖎𝖈💕🌹𝕮𝖍𝖔𝖎𝖈𝖊𝖘</title>
+ <meta name="robots" content="index, follow">
+ <meta property="og:image" content="https://i.imgur.com/hP9cpj5.jpeg">
+    <meta property="og:type" content="website">
+<link rel="icon" href="https://i.imgur.com/HkRkFOE.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh; 
+            height: 100dvh; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff;
+            overflow: hidden; 
+            background-color: #1e1e2f; 
+            cursor: none !important; 
+        }
+
+        h1 {
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            font-size: 1.5rem;
+            position: relative;
+        }
+
+        audio {
+            width: 80%;
+            max-width: 450px;
+            border-radius: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3); 
+            outline: none;
+            cursor: none !important; 
+        }
+
+        audio::-webkit-media-controls-panel,
+        audio::-webkit-media-controls-play-button,
+        audio::-webkit-media-controls-current-time-display,
+        audio::-webkit-media-controls-time-remaining-display,
+        audio::-webkit-media-controls-timeline,
+        audio::-webkit-media-controls-volume-slider-container,
+        audio::-webkit-media-controls-volume-slider,
+        audio::-webkit-media-controls-mute-button,
+        audio::-webkit-media-controls-fullscreen-button {
+            cursor: none !important;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            z-index: 1; 
+            position: relative;
+        }
+
+        button {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: none !important; 
+            font-family: inherit;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            font-size: 1.2rem; 
+        }
+
+        button:hover, button.active {
+            background: rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+            font-weight: bold;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        button.active::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: #00ff7f;
+            border-radius: 50%;
+            margin-right: 8px;
+            box-shadow: 0 0 10px #00ff7f;
+            vertical-align: middle;
+        }
+
+        button i {
+            pointer-events: none;
+        }
+
+        .live-wallpaper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2; 
+            background: url('https://i.imgur.com/hP9cpj5.jpeg') no-repeat center center;
+            background-size: cover;
+            filter: brightness(0.5);
+            animation: breathe 25s ease-in-out infinite alternate;
+        }
+
+        @keyframes breathe {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.15); }
+        }
+
+        #starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+      
+        .fog-layer-1, .fog-layer-2 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2; 
+            pointer-events: none;
+            background-size: 200% 100%;
+            background-repeat: repeat-x;
+        }
+        .fog-layer-1 {
+            background-image: url('https://raw.githubusercontent.com/danielstuart14/CSS_FOG_ANIMATION/master/fog1.png');
+            opacity: 0.3;
+            animation: fog-move 60s linear infinite;
+        }
+        .fog-layer-2 {
+            background-image: url('https://raw.githubusercontent.com/danielstuart14/CSS_FOG_ANIMATION/master/fog2.png');
+            opacity: 0.2;
+            animation: fog-move 45s linear infinite reverse;
+        }
+        @keyframes fog-move {
+            0% { background-position: 0 0; }
+            100% { background-position: -200% 0; }
+        }
+
+       
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.2rem;
+                margin-bottom: 20px;
+            }
+            audio {
+                width: 95%;
+            }
+            .controls {
+                gap: 8px;
+            }
+            button {
+                padding: 8px 16px;
+                font-size: 1rem;
+            }
+        }
+
+        #custom-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: none;
+            pointer-events: none;
+            z-index: 9999;
+            color: #e0ffff; 
+            font-size: 24px;
+            text-shadow: 0 0 10px #b9fcfc, 0 0 20px #99d1d1;
+            transition: transform 0.2s ease;
+            transform-origin: top left; 
+        }
+
+        #custom-cursor.hover {
+            transform: scale(1.3);
+            text-shadow: 0 0 20px #bfffff, 0 0 40px #b0e6e6fd;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            padding: 8px 0;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+            z-index: 10;
+        }
+        footer a {
+            color: inherit;
+            text-decoration: none;
+            cursor: none !important;
+            transition: color 0.3s;
+        }
+        footer a:hover {
+            color: #ffffff;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+            #custom-cursor { display: none !important; }
+            body, button, audio, footer a { cursor: auto !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="custom-cursor"><i class="fa-solid fa-arrow-pointer"></i></div>
+    <div class="live-wallpaper"></div>
+    <div class="fog-layer-1"></div>
+    <div class="fog-layer-2"></div>
+    <canvas id="starfield"></canvas>
+    <h1>𝕸𝖚𝖘𝖎𝖈💕🌹𝕮𝖍𝖔𝖎𝖈𝖊𝖘</h1>
+    <div id="stationButtons" class="controls"></div>
+    <footer>
+        <a href="https://xat.com/choices">https://xat.com/choices</a>
+    </footer>
+
+    <video controls="" autoplay="" name="media"><source src="https://eco.streams.ovh:8081/barazatv/index.m3u8" type="application/vnd.apple.mpegurl"></video>
+        
+    </audio>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        const player = document.getElementById('radioPlayer');
+        const buttonsContainer = document.getElementById('stationButtons');
+        const customCursor = document.getElementById('custom-cursor');
+       
+        const stations = [
+            { icon: "fa-solid fa-life-ring", name: "𝕸𝖚𝖘𝖎𝖈💕🌹𝕮𝖍𝖔𝖎𝖈𝖊𝖘", url: "https://eco.streams.ovh:8081/barazatv/index.m3u8" }, { icon: "fa-solid fa-life-ring", name: "𝕸𝖚𝖘𝖎𝖈💕🌹𝕮𝖍𝖔𝖎𝖈𝖊𝖘", url: "https://stream.rcast.net/200586" }
+        ];
+
+        let currentStationIndex = 0;
+
+        function loadStation(index) {
+            currentStationIndex = index;
+            player.src = stations[index].url;
+            player.play();
+            updateButtons();
+        }
+
+        function updateButtons() {
+            const btns = buttonsContainer.querySelectorAll('button');
+            btns.forEach((btn, idx) => {
+                if (idx === currentStationIndex) btn.classList.add('active');
+                else btn.classList.remove('active');
+            });
+        }
+
+        stations.forEach((station, index) => {
+            const btn = document.createElement('button');
+            btn.innerHTML = `<i class="${station.icon}"></i>`;
+            btn.title = station.name; // Tooltip com o nome
+            btn.onclick = () => loadStation(index);
+            buttonsContainer.appendChild(btn);
+        });
+
+        loadStation(0);
+
+        player.addEventListener('error', function() {
+            console.log("Estação indisponível, trocando para a próxima...");
+            let nextIndex = (currentStationIndex + 1) % stations.length;
+            loadStation(nextIndex);
+        });
+
+        const canvas = document.getElementById('starfield');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let stars = [];
+        let shootingStars = [];
+        const mouse = { x: null, y: null, radius: 150 };
+        window.addEventListener('resize', resize);
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+        window.addEventListener('mouseout', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        function resize() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+            initStars();
+        }
+
+        class Star {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.size = Math.random() * 1.0 + 1.0;
+                this.baseX = this.x;
+                this.baseY = this.y;
+                this.density = (Math.random() * 20) + 5; // Quão leve é a estrela
+                this.opacity = Math.random();
+                this.twinkleSpeed = Math.random() * 0.02 + 0.005;
+                this.angle = Math.random() * Math.PI * 2; 
+                this.hue = Math.random() * 360; 
+            }
+            draw() {
+                ctx.fillStyle = `hsla(${this.hue}, 70%, 80%, ${this.opacity})`; 
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            update() {
+                
+                this.hue += 0.2;
+
+                this.angle += this.twinkleSpeed;
+                this.opacity = 0.2 + (Math.sin(this.angle) + 1) * 0.4; 
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx*dx + dy*dy);
+                
+                if (mouse.x && distance < mouse.radius) {
+                    const forceDirectionX = dx / distance;
+                    const forceDirectionY = dy / distance;
+                    const force = (mouse.radius - distance) / mouse.radius;
+                    const directionX = forceDirectionX * force * this.density;
+                    const directionY = forceDirectionY * force * this.density;
+                    this.x -= directionX * 3;
+                    this.y -= directionY * 3;
+                } else {
+                    if (this.x !== this.baseX) this.x -= (this.x - this.baseX) / 20;
+                    if (this.y !== this.baseY) this.y -= (this.y - this.baseY) / 20;
+                }
+            }
+        }
+
+        class ShootingStar {
+            constructor() {
+                this.x = Math.random() * width; 
+                this.y = Math.random() * (height * 0.4); 
+                this.len = (Math.random() * 80) + 10;  
+                this.speed = (Math.random() * 5) + 4;  
+                this.life = 1.0;
+                this.decay = (Math.random() * 0.03) + 0.01; 
+                
+                this.hue = Math.random() > 0.5 ? (Math.random() * 60 + 200) : (Math.random() * 60 + 330);
+            }
+            draw() {
+                 
+                const gradient = ctx.createLinearGradient(this.x, this.y, this.x + this.len, this.y);
+                gradient.addColorStop(0, `rgba(255, 255, 255, ${this.life})`);
+                gradient.addColorStop(1, `hsla(${this.hue}, 100%, 60%, 0)`);
+
+                ctx.strokeStyle = gradient;
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo(this.x, this.y);
+                ctx.lineTo(this.x + this.len, this.y); 
+                ctx.stroke();
+            }
+            update() {
+                this.x -= this.speed;  
+                this.life -= this.decay; 
+            }
+        }
+
+        function initStars() {
+            stars = [];
+            for (let i = 0; i < 150; i++) stars.push(new Star());
+        }
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            
+            stars.forEach(star => { star.draw(); star.update(); });
+          
+            if (Math.random() < 0.001) { 
+                shootingStars.push(new ShootingStar());
+            }
+            for (let i = 0; i < shootingStars.length; i++) {
+                shootingStars[i].draw();
+                shootingStars[i].update();
+               
+                if (shootingStars[i].life <= 0 || shootingStars[i].x < -100) {
+                    shootingStars.splice(i, 1);
+                    i--;
+                }
+            }
+            
+            requestAnimationFrame(animate);
+        }
+        resize();
+        animate();
+
+        document.addEventListener('mousemove', (e) => {
+            customCursor.style.display = 'block';  
+            customCursor.style.left = e.clientX + 'px';
+            customCursor.style.top = e.clientY + 'px';
+        });
+
+        document.addEventListener('mouseover', (e) => {
+            if (e.target.closest('button') || e.target.tagName === 'AUDIO' || e.target.closest('a')) {
+                customCursor.classList.add('hover');
+            }
+        });
+        document.addEventListener('mouseout', (e) => {
+            if (e.target.closest('button') || e.target.tagName === 'AUDIO' || e.target.closest('a')) {
+                customCursor.classList.remove('hover');
+            }
+        });
+
+  document.addEventListener('contextmenu', event => event.preventDefault());
+        
+        document.addEventListener('keydown', function(e) {
+            // 
+            if(e.key === 'F12' || e.keyCode === 123) {
+                e.preventDefault();
+                return false;
+            }
+            
+            if(e.ctrlKey && e.shiftKey && ['I', 'J', 'C', 'i', 'j', 'c'].includes(e.key)) {
+                e.preventDefault();
+                return false;
+            }
+            
+            if(e.ctrlKey && (e.key === 'U' || e.key === 'u')) {
+                e.preventDefault();
+                return false;
+            }
+        });
+    </script>
+</body>
+</html>
